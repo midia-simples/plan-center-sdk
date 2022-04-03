@@ -30,7 +30,9 @@ class PlanCenterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('laravel-plancenter', function () {
+            return new PlanCenter;
+        });
     }
 
     /**
