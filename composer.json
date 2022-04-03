@@ -39,6 +39,13 @@
         "test": "vendor/bin/phpunit",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MidiaSimples\\PlanCenterSDK\\PlanCenterServiceProvider"
+            ]
+        }
+    },
     "config": {
         "sort-packages": true
     },
