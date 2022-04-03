@@ -1,5 +1,6 @@
 {
     "name": "midia-simples/plan-center-sdk",
+    "type": "library",
     "description": "Um pacote para facilitar o consumo da API do projeto Plan Center",
     "keywords": [
         "midia-simples",
@@ -10,16 +11,19 @@
     "authors": [
         {
             "name": "Matheus Gomes",
-            "email": "mathvicentin@gmail.com"
+            "email": "mathvicentin@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.4"
+        "php": ">=7.4",
+        "guzzlehttp/guzzle": "7.0",
+        "illuminate/http": "^8.83",
+        "illuminate/support": "^8.83"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/ray": "^1.28"
+        "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
         "psr-4": {
