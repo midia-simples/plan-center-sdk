@@ -1,6 +1,5 @@
 <?php
 
-
 namespace MidiaSimples\PlanCenterSDK\Tests\Feature;
 
 use MidiaSimples\PlanCenterSDK\Tests\TestCase;
