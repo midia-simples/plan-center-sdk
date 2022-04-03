@@ -44,6 +44,9 @@
             "providers": [
                 "MidiaSimples\\PlanCenterSDK\\PlanCenterServiceProvider"
             ]
+        },
+        "aliases": {
+            "Paystack": "MidiaSimples\\PlanCenterSDK\\Facades\\PlanCenter"
         }
     },
     "config": {
