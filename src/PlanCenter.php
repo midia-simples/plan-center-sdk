@@ -6,6 +6,7 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerContract;
+use MidiaSimples\PlanCenterSDK\Services\Plan;
 
 class PlanCenter implements ManagerContract
 {
@@ -64,5 +65,13 @@ class PlanCenter implements ManagerContract
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->withToken($this->secretKey);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Plan
+     */
+    public function plans(): Plan
+    {
+        return new Plan($this->client);
     }
 }
