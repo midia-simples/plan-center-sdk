@@ -5,11 +5,11 @@ namespace MidiaSimples\PlanCenterSDK;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
-use MidiaSimples\PlanCenterSDK\Contracts\ManagerContract;
+use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
 
-class PlanCenter implements ManagerContract
+class PlanCenter implements ManagerInterface
 {
     /**
      * @var string
@@ -38,9 +38,9 @@ class PlanCenter implements ManagerContract
      *
      * @return void
      */
-    public function setBaseUrl()
+    public function setBaseUrl(string $value = null)
     {
-        $this->baseUrl = Config::get('plancenter.base_url');
+        $this->baseUrl = $value ?? Config::get('plancenter.base_url');
     }
 
     /**
@@ -48,9 +48,9 @@ class PlanCenter implements ManagerContract
      *
      * @return void
      */
-    public function setSecretKey()
+    public function setSecretKey(string $value = null)
     {
-        $this->secretKey = Config::get('plancenter.secret_key');
+        $this->secretKey = $value ?? Config::get('plancenter.secret_key');
     }
 
     /**

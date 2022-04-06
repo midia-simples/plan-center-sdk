@@ -2,14 +2,24 @@
 
 namespace MidiaSimples\PlanCenterSDK;
 
+use Illuminate\Http\Client\PendingRequest;
+use Illuminate\Http\Client\Response;
+
 abstract class Repository
 {
     /**
+     * Instância do cliente que faz comunicação com o Plan Center
+     *
+     * @var \Illuminate\Http\Client\PendingRequest
+     */
+    protected PendingRequest $client;
+
+    /**
      * Resposta das solicitações feitas ao Plan Center
      *
-     * @var mixed
+     * @var \Illuminate\Http\Client\Response
      */
-    protected $response;
+    protected Response $response;
 
     /**
      * @param string $uri
