@@ -38,9 +38,9 @@ class PlanCenter implements ManagerInterface
      *
      * @return void
      */
-    public function setBaseUrl()
+    public function setBaseUrl(string $value = null)
     {
-        $this->baseUrl = Config::get('plancenter.base_url');
+        $this->baseUrl = $value ?? Config::get('plancenter.base_url');
     }
 
     /**
@@ -48,9 +48,9 @@ class PlanCenter implements ManagerInterface
      *
      * @return void
      */
-    public function setSecretKey()
+    public function setSecretKey(string $value = null)
     {
-        $this->secretKey = Config::get('plancenter.secret_key');
+        $this->secretKey = $value ?? Config::get('plancenter.secret_key');
     }
 
     /**
