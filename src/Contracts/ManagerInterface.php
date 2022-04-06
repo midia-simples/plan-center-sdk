@@ -2,7 +2,7 @@
 
 namespace MidiaSimples\PlanCenterSDK\Contracts;
 
-interface ManagerContract
+interface ManagerInterface
 {
     public function setBaseUrl();
 

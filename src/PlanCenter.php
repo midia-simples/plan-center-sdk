@@ -5,11 +5,11 @@ namespace MidiaSimples\PlanCenterSDK;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
-use MidiaSimples\PlanCenterSDK\Contracts\ManagerContract;
+use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
 
-class PlanCenter implements ManagerContract
+class PlanCenter implements ManagerInterface
 {
     /**
      * @var string
