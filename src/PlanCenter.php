@@ -12,6 +12,7 @@ use MidiaSimples\PlanCenterSDK\Services\Company;
 use MidiaSimples\PlanCenterSDK\Services\Hour;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
+use MidiaSimples\PlanCenterSDK\Services\Upgrade;
 
 class PlanCenter implements ManagerInterface
 {
@@ -118,5 +119,13 @@ class PlanCenter implements ManagerInterface
     public function plans(): Plan
     {
         return new Plan($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Upgrade
+     */
+    public function upgrades(): Upgrade
+    {
+        return new Upgrade($this->client);
     }
 }
