@@ -3,9 +3,10 @@
 namespace MidiaSimples\PlanCenterSDK\Services;
 
 use Illuminate\Http\Client\PendingRequest;
+use MidiaSimples\PlanCenterSDK\Contracts\Services\LeadRepositoryInterface;
 use MidiaSimples\PlanCenterSDK\Repository;
 
-class Lead extends Repository
+class Lead extends Repository implements LeadRepositoryInterface
 {
     /**
      * @var \Illuminate\Http\Client\PendingRequest
