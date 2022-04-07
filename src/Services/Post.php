@@ -3,10 +3,10 @@
 namespace MidiaSimples\PlanCenterSDK\Services;
 
 use Illuminate\Http\Client\PendingRequest;
-use MidiaSimples\PlanCenterSDK\Contracts\Services\PlanRepositoryInterface;
+use MidiaSimples\PlanCenterSDK\Contracts\Services\PostRepositoryInterface;
 use MidiaSimples\PlanCenterSDK\Repository;
 
-class Plan extends Repository implements PlanRepositoryInterface
+class Post extends Repository implements PostRepositoryInterface
 {
     /**
      * @var \Illuminate\Http\Client\PendingRequest
@@ -24,7 +24,7 @@ class Plan extends Repository implements PlanRepositoryInterface
      */
     public function all(array $options = []): array
     {
-        return $this->getRequest('plans', $options);
+        return $this->getRequest('posts', $options);
     }
 
     /**
@@ -34,6 +34,6 @@ class Plan extends Repository implements PlanRepositoryInterface
      */
     public function findById($id, array $options = []): array
     {
-        return $this->getRequest("plans/{$id}", $options);
+        return $this->getRequest("posts/{$id}", $options);
     }
 }

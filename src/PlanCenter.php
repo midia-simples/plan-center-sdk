@@ -6,8 +6,14 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
+use MidiaSimples\PlanCenterSDK\Services\Cep;
+use MidiaSimples\PlanCenterSDK\Services\Cluster;
+use MidiaSimples\PlanCenterSDK\Services\Company;
+use MidiaSimples\PlanCenterSDK\Services\Hour;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
+use MidiaSimples\PlanCenterSDK\Services\Post;
+use MidiaSimples\PlanCenterSDK\Services\Upgrade;
 
 class PlanCenter implements ManagerInterface
 {
@@ -69,6 +75,38 @@ class PlanCenter implements ManagerInterface
     }
 
     /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Cep
+     */
+    public function cep(): Cep
+    {
+        return new Cep($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Company
+     */
+    public function companies(): Company
+    {
+        return new Company($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Cluster
+     */
+    public function clusters(): Cluster
+    {
+        return new Cluster($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Hour
+     */
+    public function hours(): Hour
+    {
+        return new Hour($this->client);
+    }
+
+    /**
      * @return \MidiaSimples\PlanCenterSDK\Services\Lead
      */
     public function leads(): Lead
@@ -82,5 +120,21 @@ class PlanCenter implements ManagerInterface
     public function plans(): Plan
     {
         return new Plan($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Post
+     */
+    public function posts(): Post
+    {
+        return new Post($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Upgrade
+     */
+    public function upgrades(): Upgrade
+    {
+        return new Upgrade($this->client);
     }
 }
