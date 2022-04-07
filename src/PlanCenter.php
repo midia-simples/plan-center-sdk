@@ -6,6 +6,8 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
+use MidiaSimples\PlanCenterSDK\Services\Cluster;
+use MidiaSimples\PlanCenterSDK\Services\Company;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
 
@@ -66,6 +68,22 @@ class PlanCenter implements ManagerInterface
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->withToken($this->secretKey);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Company
+     */
+    public function companies(): Company
+    {
+        return new Company($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Cluster
+     */
+    public function clusters(): Cluster
+    {
+        return new Cluster($this->client);
     }
 
     /**
