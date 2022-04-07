@@ -6,6 +6,7 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
+use MidiaSimples\PlanCenterSDK\Services\Cep;
 use MidiaSimples\PlanCenterSDK\Services\Cluster;
 use MidiaSimples\PlanCenterSDK\Services\Company;
 use MidiaSimples\PlanCenterSDK\Services\Hour;
@@ -69,6 +70,14 @@ class PlanCenter implements ManagerInterface
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->withToken($this->secretKey);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Cep
+     */
+    public function cep(): Cep
+    {
+        return new Cep($this->client);
     }
 
     /**
