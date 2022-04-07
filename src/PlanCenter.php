@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
 use MidiaSimples\PlanCenterSDK\Services\Cluster;
 use MidiaSimples\PlanCenterSDK\Services\Company;
+use MidiaSimples\PlanCenterSDK\Services\Hour;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
 
@@ -84,6 +85,14 @@ class PlanCenter implements ManagerInterface
     public function clusters(): Cluster
     {
         return new Cluster($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Hour
+     */
+    public function hours(): Hour
+    {
+        return new Hour($this->client);
     }
 
     /**
