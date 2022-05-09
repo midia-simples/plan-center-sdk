@@ -13,6 +13,7 @@ use MidiaSimples\PlanCenterSDK\Services\Hour;
 use MidiaSimples\PlanCenterSDK\Services\Lead;
 use MidiaSimples\PlanCenterSDK\Services\Plan;
 use MidiaSimples\PlanCenterSDK\Services\Post;
+use MidiaSimples\PlanCenterSDK\Services\Unit;
 use MidiaSimples\PlanCenterSDK\Services\Upgrade;
 
 class PlanCenter implements ManagerInterface
@@ -128,6 +129,14 @@ class PlanCenter implements ManagerInterface
     public function posts(): Post
     {
         return new Post($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Unit
+     */
+    public function units(): Unit
+    {
+        return new Unit($this->client);
     }
 
     /**
