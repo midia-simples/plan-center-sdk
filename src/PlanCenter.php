@@ -6,15 +6,18 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
-use MidiaSimples\PlanCenterSDK\Services\Cep;
-use MidiaSimples\PlanCenterSDK\Services\Cluster;
-use MidiaSimples\PlanCenterSDK\Services\Company;
-use MidiaSimples\PlanCenterSDK\Services\Hour;
-use MidiaSimples\PlanCenterSDK\Services\Lead;
-use MidiaSimples\PlanCenterSDK\Services\Plan;
-use MidiaSimples\PlanCenterSDK\Services\Post;
-use MidiaSimples\PlanCenterSDK\Services\Unit;
-use MidiaSimples\PlanCenterSDK\Services\Upgrade;
+use MidiaSimples\PlanCenterSDK\Services\{
+    Banner,
+    Cep,
+    Cluster,
+    Company,
+    Hour,
+    Lead,
+    Plan,
+    Post,
+    Unit,
+    Upgrade,
+};
 
 class PlanCenter implements ManagerInterface
 {
@@ -73,6 +76,14 @@ class PlanCenter implements ManagerInterface
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->withToken($this->secretKey);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Banner
+     */
+    public function banners(): Banner
+    {
+        return new Banner($this->client);
     }
 
     /**
