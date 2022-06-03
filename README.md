@@ -15,7 +15,7 @@ composer require midia-simples/plan-center-sdk
 Ou adicione a seguinte linha ao bloco require do seu arquivo `composer.json`.
 
 ```
-"midia-simples/plan-center-sdk": "0.1.*"
+"midia-simples/plan-center-sdk": "^0.3"
 ```
 
 Você precisará então executar `composer install` ou `composer update` para baixá-lo e ter o autoloader atualizado.
