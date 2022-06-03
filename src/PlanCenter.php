@@ -9,6 +9,7 @@ use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
 use MidiaSimples\PlanCenterSDK\Services\{
     Banner,
     Cep,
+    City,
     Cluster,
     Company,
     Hour,
@@ -92,6 +93,14 @@ class PlanCenter implements ManagerInterface
     public function cep(): Cep
     {
         return new Cep($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\City
+     */
+    public function cities(): City
+    {
+        return new City($this->client);
     }
 
     /**
