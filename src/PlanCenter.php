@@ -6,12 +6,12 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
-use MidiaSimples\PlanCenterSDK\Services\{
-    Banner,
+use MidiaSimples\PlanCenterSDK\Services\{Banner,
     Cep,
     City,
     Cluster,
     Company,
+    FaqCategory,
     Hour,
     Lead,
     Plan,
@@ -117,6 +117,14 @@ class PlanCenter implements ManagerInterface
     public function clusters(): Cluster
     {
         return new Cluster($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\FaqCategory
+     */
+    public function faqCategories(): FaqCategory
+    {
+        return new FaqCategory($this->client);
     }
 
     /**
