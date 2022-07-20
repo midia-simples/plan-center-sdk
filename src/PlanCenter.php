@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
 use MidiaSimples\PlanCenterSDK\Services\{Banner,
     Cep,
+    Channel,
     City,
     Cluster,
+    Combo,
     Company,
     FaqCategory,
     Hour,
@@ -17,7 +19,7 @@ use MidiaSimples\PlanCenterSDK\Services\{Banner,
     Plan,
     Post,
     Unit,
-    Upgrade,
+    Upgrade
 };
 
 class PlanCenter implements ManagerInterface
@@ -96,11 +98,27 @@ class PlanCenter implements ManagerInterface
     }
 
     /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Channel
+     */
+    public function channels(): Channel
+    {
+        return new Channel($this->client);
+    }
+
+    /**
      * @return \MidiaSimples\PlanCenterSDK\Services\City
      */
     public function cities(): City
     {
         return new City($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Combo
+     */
+    public function combos(): Combo
+    {
+        return new Combo($this->client);
     }
 
     /**
