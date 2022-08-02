@@ -6,7 +6,8 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
-use MidiaSimples\PlanCenterSDK\Services\{Banner,
+use MidiaSimples\PlanCenterSDK\Services\{Attribute,
+    Banner,
     Cep,
     Channel,
     City,
@@ -79,6 +80,14 @@ class PlanCenter implements ManagerInterface
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->withToken($this->secretKey);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Attribute
+     */
+    public function attributes(): Attribute
+    {
+        return new Attribute($this->client);
     }
 
     /**
