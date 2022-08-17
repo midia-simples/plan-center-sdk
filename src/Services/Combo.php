@@ -38,10 +38,11 @@ class Combo extends Repository implements ComboRepositoryInterface
 
     /**
      * @param $id
+     * @param array $options
      * @return array
      */
-    public function show($id): array
+    public function show($id, array $options = []): array
     {
-        return $this->getRequest("combos/{$id}");
+        return $this->getRequest("combos/{$id}", $options);
     }
 }
