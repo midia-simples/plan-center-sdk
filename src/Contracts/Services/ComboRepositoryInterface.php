@@ -18,7 +18,8 @@ interface ComboRepositoryInterface
 
     /**
      * @param $id
+     * @param array $options
      * @return array
      */
-    public function show($id): array;
+    public function show($id, array $options = []): array;
 }
