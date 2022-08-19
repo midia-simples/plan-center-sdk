@@ -36,4 +36,13 @@ class Plan extends Repository implements PlanRepositoryInterface
     {
         return $this->getRequest("plans/{$id}", $options);
     }
+
+     /**
+     * @param $cep
+     * @return array
+     */
+    public function findByCep($cep): array
+    {
+        return $this->getRequest("plans/cep", ['cep' => $cep]);
+    }
 }
