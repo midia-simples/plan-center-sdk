@@ -36,6 +36,11 @@ class PlanCenter implements ManagerInterface
     protected string $secretKey;
 
     /**
+     * @var string
+     */
+    protected string $userAgent;
+
+    /**
      * @var \Illuminate\Http\Client\PendingRequest
      */
     protected PendingRequest $client;
@@ -43,6 +48,7 @@ class PlanCenter implements ManagerInterface
     public function __construct()
     {
         $this->setSecretKey();
+        $this->setUserAget();
         $this->setBaseUrl();
         $this->setRequestOptions();
     }
@@ -68,6 +74,17 @@ class PlanCenter implements ManagerInterface
     }
 
     /**
+     * Obtenha o nome do projeto na qual está fazendo a requisição para o Plan center
+     * 
+     * @return void
+     */
+    public function setUserAget(string $value = null)
+    {
+        $this->userAgent = $value ?? Config::get('plancenter.user_agent');
+    }
+
+
+    /**
      * Definir opções para fazer a solicitação do cliente
      *
      * @return void
@@ -77,6 +94,7 @@ class PlanCenter implements ManagerInterface
         $this->client = Http::withOptions([
             'base_uri' => $this->baseUrl,
         ])->withHeaders([
+            'User-Agent' => $this->userAgent,
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ])->withToken($this->secretKey);
