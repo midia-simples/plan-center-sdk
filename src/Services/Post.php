@@ -36,4 +36,13 @@ class Post extends Repository implements PostRepositoryInterface
     {
         return $this->getRequest("posts/{$id}", $options);
     }
+
+     /**
+     * @param array $options
+     * @return array
+     */
+    public function paginate(array $options = []): array
+    {
+        return $this->getRequest("posts/paginate", $options);
+    }
 }
