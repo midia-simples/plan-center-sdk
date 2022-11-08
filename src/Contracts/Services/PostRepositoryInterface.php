@@ -16,4 +16,10 @@ interface PostRepositoryInterface
      * @return array
      */
     public function findById($id, array $options = []): array;
+
+    /**
+     * @param array $options
+     * @return array
+     */
+    public function paginate(array $options = []): array;
 }
