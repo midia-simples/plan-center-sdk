@@ -20,7 +20,8 @@ use MidiaSimples\PlanCenterSDK\Services\{Attribute,
     Plan,
     Post,
     Unit,
-    Upgrade
+    Upgrade,
+    Sva,
 };
 
 class PlanCenter implements ManagerInterface
@@ -218,5 +219,12 @@ class PlanCenter implements ManagerInterface
     public function upgrades(): Upgrade
     {
         return new Upgrade($this->client);
+    }
+     /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Sva
+     */
+    public function svas(): Sva
+    {
+        return new Sva($this->client);
     }
 }
