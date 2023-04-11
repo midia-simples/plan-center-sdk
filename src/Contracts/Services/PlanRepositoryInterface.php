@@ -21,5 +21,6 @@ interface PlanRepositoryInterface
      * @param $cep
      * @return array
      */
-    public function findByCep($cep): array;
+    public function findByCep(array $options = []): array;
 }
+
