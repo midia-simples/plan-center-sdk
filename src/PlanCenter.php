@@ -6,7 +6,8 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use MidiaSimples\PlanCenterSDK\Contracts\ManagerInterface;
-use MidiaSimples\PlanCenterSDK\Services\{Attribute,
+use MidiaSimples\PlanCenterSDK\Services\{
+    Attribute,
     Banner,
     Cep,
     Channel,
@@ -22,6 +23,7 @@ use MidiaSimples\PlanCenterSDK\Services\{Attribute,
     Unit,
     Upgrade,
     Sva,
+    Installation
 };
 
 class PlanCenter implements ManagerInterface
@@ -182,6 +184,14 @@ class PlanCenter implements ManagerInterface
     }
 
     /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\Installation
+     */
+    public function installation(): Installation
+    {
+        return new Installation($this->client);
+    }
+
+    /**
      * @return \MidiaSimples\PlanCenterSDK\Services\Lead
      */
     public function leads(): Lead
@@ -220,7 +230,7 @@ class PlanCenter implements ManagerInterface
     {
         return new Upgrade($this->client);
     }
-     /**
+    /**
      * @return \MidiaSimples\PlanCenterSDK\Services\Sva
      */
     public function svas(): Sva
