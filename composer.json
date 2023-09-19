@@ -1,57 +1,57 @@
 {
-    "name": "midia-simples/plan-center-sdk",
-    "type": "library",
-    "description": "Um pacote para facilitar o consumo da API do projeto Plan Center",
-    "keywords": [
-        "midia-simples",
-        "plan-center"
-    ],
-    "homepage": "https://github.com/midia-simples/plan-center-sdk",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Matheus Gomes",
-            "email": "mathvicentin@gmail.com",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=7.4",
-        "guzzlehttp/guzzle": "^7.0.1",
-        "illuminate/http": "^8.83",
-        "illuminate/support": "^8.83"
+  "name": "midia-simples/plan-center-sdk",
+  "type": "library",
+  "description": "Um pacote para facilitar o consumo da API do projeto Plan Center",
+  "keywords": [
+    "midia-simples",
+    "plan-center"
+  ],
+  "homepage": "https://github.com/midia-simples/plan-center-sdk",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Matheus Gomes",
+      "email": "mathvicentin@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "guzzlehttp/guzzle": "^7.2",
+    "illuminate/http": "^8.83",
+    "illuminate/support": "^8.83"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "phpunit/phpunit": "^9.5.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "MidiaSimples\\PlanCenterSDK\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MidiaSimples\\PlanCenterSDK\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MidiaSimples\\PlanCenterSDK\\PlanCenterServiceProvider"
+      ]
     },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "phpunit/phpunit": "^9.5.10"
-    },
-    "autoload": {
-        "psr-4": {
-            "MidiaSimples\\PlanCenterSDK\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "MidiaSimples\\PlanCenterSDK\\Tests\\": "tests"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "MidiaSimples\\PlanCenterSDK\\PlanCenterServiceProvider"
-            ]
-        },
-        "aliases": {
-            "Paystack": "MidiaSimples\\PlanCenterSDK\\Facades\\PlanCenter"
-        }
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "aliases": {
+      "Paystack": "MidiaSimples\\PlanCenterSDK\\Facades\\PlanCenter"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
