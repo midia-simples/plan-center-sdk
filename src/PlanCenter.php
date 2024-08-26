@@ -23,7 +23,8 @@ use MidiaSimples\PlanCenterSDK\Services\{
     Unit,
     Upgrade,
     Sva,
-    Installation
+    Installation,
+    LandingPage
 };
 
 class PlanCenter implements ManagerInterface
@@ -189,6 +190,13 @@ class PlanCenter implements ManagerInterface
     public function installation(): Installation
     {
         return new Installation($this->client);
+    }
+
+    /**
+     * @return \Midiasimples\PlanCenterSDK\Services\LandingPage
+     */
+    public function landingPages(): LandingPage {
+        return new LandingPage($this->client);
     }
 
     /**
