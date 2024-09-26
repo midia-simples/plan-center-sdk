@@ -15,6 +15,7 @@ use MidiaSimples\PlanCenterSDK\Services\{
     Cluster,
     Combo,
     Company,
+    CustomField,
     FaqCategory,
     Hour,
     Lead,
@@ -166,6 +167,14 @@ class PlanCenter implements ManagerInterface
     public function clusters(): Cluster
     {
         return new Cluster($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\CustomField
+     */
+    public function customFields(): CustomField
+    {
+        return new CustomField($this->client);
     }
 
     /**
