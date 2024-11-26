@@ -16,6 +16,7 @@ use MidiaSimples\PlanCenterSDK\Services\{
     Combo,
     Company,
     CustomField,
+    CustomMadePlan,
     FaqCategory,
     Hour,
     Lead,
@@ -175,6 +176,14 @@ class PlanCenter implements ManagerInterface
     public function customFields(): CustomField
     {
         return new CustomField($this->client);
+    }
+
+    /**
+     * @return \MidiaSimples\PlanCenterSDK\Services\CustomMadePlan
+     */
+    public function customMadePlans(): CustomMadePlan
+    {
+        return new CustomMadePlan($this->client);
     }
 
     /**
