@@ -95,7 +95,7 @@ class PlanCenter implements ManagerInterface
      *
      * @return void
      */
-    private function setRequestOptions()
+    public function setRequestOptions()
     {
         $this->client = Http::withOptions([
             'base_uri' => $this->baseUrl,
